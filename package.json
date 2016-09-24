@@ -1,0 +1,56 @@
+{
+  "name": "multili",
+  "version": "0.0.0",
+  "description": "Function to remove indentation in multi-lines template literals (string) based on the indented line.",
+  "keywords": [
+    "template",
+    "literal",
+    "string",
+    "mutli",
+    "lines",
+    "mutli-lines",
+    "mutlilines"
+  ],
+  "author": "Maxime Thirouin",
+  "license": "MIT",
+  "repository": "https://github.com/MoOx/multili.git",
+  "#repositories": "https://github.com/npm/npm/issues/11315",
+  "repositories": [
+    "https://github.com/MoOx/multili.git",
+    "https://gitlab.com/MoOx/multili.git",
+    "https://bitbucket.org/MoOx/multili.git"
+  ],
+  "main": "src/index.js",
+  "files": [
+    "src",
+    "!**/__tests__"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "coveralls": "^2.11.9",
+    "eslint": "^3.0.0",
+    "eslint-config-i-am-meticulous": "^5.0.2",
+    "jest": "^15.1.1",
+    "npmpub": "^3.0.0"
+  },
+  "scripts": {
+    "lint:js": "eslint --ignore-path .gitignore --fix .",
+    "lint": "npm -s run lint:js",
+    "tests": "jest",
+    "pretest": "npm -s run lint",
+    "test": "npm -s run tests",
+    "coverage": "cat ./coverage/lcov.info | coveralls",
+    "release": "npmpub"
+  },
+  "eslintConfig": {
+    "env": {
+      "jest": true
+    },
+    "extends": [
+      "eslint-config-i-am-meticulous"
+    ]
+  },
+  "jest": {
+    "collectCoverage": true
+  }
+}
