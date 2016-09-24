@@ -1,3 +1,5 @@
+"use strict"
+
 const whiteSpaceRE = /^\s+/
 const fakeInfiniteString = { length: Infinity }
 
