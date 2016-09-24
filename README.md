@@ -21,11 +21,13 @@ $ npm install multili
 ```js
 import multili from "multili"
 
-multili(`
-This is a
-  multi-lines
-    string
-`)
+multili(
+  `
+      This is a
+        multi-lines
+          string
+  `
+)
 
 // Will produce
 /*
