@@ -42,21 +42,21 @@ multili(`
 
 // Will produce
 /*
-  This is a
-  multi-lines
-    string
+This is a
+multi-lines
+  string
 */
 
 
 multili(`
-    This is a
+      This is a
   multi-lines
     string
 `)
 
 // Will produce
 /*
-  This is a
+    This is a
 multi-lines
   string
 */
