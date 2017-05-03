@@ -64,6 +64,25 @@ multi-lines
 */
 ```
 
+You can also pass an array of lines instead of a string; in this case, the return value will also be an array.
+
+```js
+multili([
+  "        This is a",
+  "          milti-line",
+  "            string",
+])
+
+// Will produce
+/*
+[
+  "This is a",
+  "  milti-line",
+  "    string",
+]
+*/
+```
+
 ---
 
 ## CONTRIBUTING
