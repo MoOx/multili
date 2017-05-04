@@ -73,3 +73,10 @@ it("accept and return an array", () => {
     "    string",
   ])
 })
+
+it("zero '0' should be preserved", () => {
+  expect(multili(`the next line starts with 0:
+0123`))
+  .toEqual(`the next line starts with 0:
+0123`)
+})

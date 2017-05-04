@@ -22,7 +22,7 @@ module.exports = (s) => {
         whiteSpace = matches[0]
       }
       else if (whiteSpace === fakeInfiniteString) {
-        whiteSpace = 0
+        whiteSpace = ""
       }
     }
   })
