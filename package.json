@@ -29,8 +29,8 @@
   "devDependencies": {
     "coveralls": "^2.11.9",
     "eslint": "^3.0.0",
-    "eslint-config-i-am-meticulous": "^5.0.2",
-    "jest": "^15.1.1",
+    "eslint-config-i-am-meticulous": "^6.0.0",
+    "jest": "^20.0.0",
     "npmpub": "^3.0.0"
   },
   "scripts": {
