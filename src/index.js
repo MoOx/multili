@@ -1,16 +1,18 @@
 "use strict"
 
-const whiteSpaceRE = /^\s+/
+const whiteSpaceRE = /\s+/
+const whiteSpaceBeginRE = /^\s+/
 const fakeInfiniteString = { length: Infinity }
 
 module.exports = (s) => {
-  const lines = s.split("\n")
+  const resultArray = Array.isArray(s)
+  const lines = resultArray ? s : s.split("\n")
   let whiteSpace = fakeInfiniteString
   lines.forEach((line) => {
-    const matches = line.match(whiteSpaceRE)
+    const matches = line.match(whiteSpaceBeginRE)
     if (
       line.length &&
-      line.replace(/\s+/, "") !== ""
+      line.replace(whiteSpaceRE, "") !== ""
     ) {
       if (
         matches &&
@@ -20,17 +22,17 @@ module.exports = (s) => {
         whiteSpace = matches[0]
       }
       else if (whiteSpace === fakeInfiniteString) {
-        whiteSpace = 0
+        whiteSpace = ""
       }
     }
   })
 
   if (lines.length) {
-    const firstLine = lines[0].replace(/\s+/, "")
+    const firstLine = lines[0].replace(whiteSpaceRE, "")
     if (firstLine === "") {
       lines[0] = firstLine
     }
-    const lastLine = lines[lines.length - 1].replace(/\s+/, "")
+    const lastLine = lines[lines.length - 1].replace(whiteSpaceRE, "")
     if (lastLine === "") {
       lines[lines.length - 1] = lastLine
     }
@@ -38,7 +40,10 @@ module.exports = (s) => {
 
   let result = s
   if (whiteSpace !== fakeInfiniteString) {
-    result = lines.map((line) => line.replace(whiteSpace, "")).join("\n")
+    result = lines.map((line) => line.replace(whiteSpace, ""))
+    if (!resultArray) {
+      result = result.join("\n")
+    }
   }
 
   return result
