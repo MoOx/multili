@@ -4,24 +4,20 @@ const whiteSpaceRE = /\s+/
 const whiteSpaceBeginRE = /^\s+/
 const fakeInfiniteString = { length: Infinity }
 
-module.exports = (s) => {
+module.exports = s => {
   const resultArray = Array.isArray(s)
   const lines = resultArray ? s : s.split("\n")
   let whiteSpace = fakeInfiniteString
-  lines.forEach((line) => {
+  lines.forEach(line => {
     const matches = line.match(whiteSpaceBeginRE)
-    if (
-      line.length &&
-      line.replace(whiteSpaceRE, "") !== ""
-    ) {
+    if (line.length && line.replace(whiteSpaceRE, "") !== "") {
       if (
         matches &&
         matches.length < line.length &&
         matches[0].length < whiteSpace.length
       ) {
         whiteSpace = matches[0]
-      }
-      else if (whiteSpace === fakeInfiniteString) {
+      } else if (whiteSpace === fakeInfiniteString) {
         whiteSpace = ""
       }
     }
@@ -40,7 +36,7 @@ module.exports = (s) => {
 
   let result = s
   if (whiteSpace !== fakeInfiniteString) {
-    result = lines.map((line) => line.replace(whiteSpace, ""))
+    result = lines.map(line => line.replace(whiteSpace, ""))
     if (!resultArray) {
       result = result.join("\n")
     }
